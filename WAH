@@ -1,0 +1,70 @@
+# ============================ #
+# OOPssimple.py
+# Mark Balagtas
+# 6/7/2021
+# Basic usage of classes to helm me practice contsructing classes, using inheritance, and dif methods using classes.
+# ============================ #
+
+# ============== imports ============= #
+
+import time as t
+import random as r
+
+# ======= lists ======= #
+peoples = ['Dave', 'Henry', 'Dog']
+jobs = ['Plumber','Mechanic', 'Doctor']
+
+# ============= classes ============== #
+
+class people:
+    
+    place = 'California'
+    
+    def __init__(self, name, job, age):
+        self.name = name
+        self.job = job
+        self.age = age
+    
+    def introduce(self):
+        print('\nHi! My name is', self.name + ', and my job is a', self.job + '.')
+        
+    def children(self, child_num):
+        print('I have', str(child_num), 'children.')
+        
+class special(people):
+    def __init__(self,name = 'Bob', job = 'Gamer', age = '3'):
+        self.name=name
+        self.job=job
+        self.age=age
+    
+    def fact(self):
+        print('I have 13 toes.')
+        
+
+# ============= funcs =============== #
+
+def main():
+    print('People be like:')
+    i = 0 # represents index
+    while i < len(peoples):
+        person = peoples[i] # gets person from list with index num
+        job = jobs[i]
+        age = r.randint(2,99)
+        
+        intro = people(person, job, age) # sets as object, with new person and job each time.
+        intro.introduce() # calls introduce func with new people and jobs each time.
+        print('I live in', intro.place, 'and I am', intro.age, 'years old.') # calls instance
+        
+        num_of_child = r.randint(2,15)
+        intro.children(num_of_child) # calls func with variable
+        
+        i += 1
+    bob = special() #sub class
+    bob.introduce()
+    print('I live in', bob.place, 'and I am', bob.age, 'years old.')
+    bob.fact() # subclass func
+    
+# ============ main =========== #
+
+main()
+
